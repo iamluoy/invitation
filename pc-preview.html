@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>邀请函·会议邀请函</title>
+	<meta name="keywords" content="免费,微场景,微信场景应用,场景应用,免费邀请函,微海报,微杂志，邀请函·会议邀请函">
+	<meta name="description" content="微客场景是免费制作微信场景应用的运营服务平台，微场景是移动互联网的新型信息连接方式，微客场景将为您提供免费，稳定、流畅的贴心服务，行业领先，值得信赖。当前场景为“邀请函·会议邀请函”">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js?v=20160410"></script>
+	<script type="text/javascript" src="js/jquery.cookie.min.js?v=20160410"></script>
+	<script type="text/javascript">
+		//如果是手机浏览，则跳转到实际页面
+		var ua = navigator.userAgent;
+		var ipad = ua.match(/(iPad).*OS\s([\d_]+)/),
+			isIphone = !ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/),
+			isAndroid = ua.match(/(Android)\s+([\d.]+)/),
+			isMobile = isIphone || isAndroid;
+		if (isMobile) {
+			location.href = 'mobile-preview.html';
+		}
+	</script>
+	<style type="text/css">
+		html {
+			height: 100%;
+			min-height: 100%;
+		}
+		
+		body {
+			margin: 0px;
+			padding: 0px;
+			font-family: 'Microsoft Yahei', 微软雅黑, 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Segoe UI', Tahoma, Arial, STHeiti, sans-serif;
+			height: 100%;
+			min-height: 100%;
+			background: url('image/previewbg.jpg');
+			background-size: cover;
+			background-position: 50% 50%;
+		}
+		
+		.main {
+			width: 820px;
+			height: 624px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -317px;
+			margin-left: -400px;
+		}
+		
+		.main .mobile {
+			position: relative;
+			width: 322px;
+			float: left;
+		}
+		
+		.main .guide {
+			float: right;
+			padding-top: 70px;
+		}
+		
+		.main .top {
+			background: url('image/yulan_phone_top.png');
+			width: 322px;
+			height: 42px;
+		}
+		
+		.main .bar {
+			background: url('image/menu_bar.jpg');
+			width: 322px;
+			height: 20px;
+		}
+		
+		.main .title {
+			background: black;
+			width: 284px;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			color: white;
+			font-size: 16px;
+			border: 1px white solid;
+			border-top: none;
+			border-bottom: none;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+			padding: 0 18px;
+		}
+		
+		.main .bottom {
+			background: url('image/yulan_phone_bottom.png');
+			width: 322px;
+			height: 47px;
+			margin-top: -4px;
+		}
+		
+		.main .previewWrap {
+			text-align: center;
+			overflow: hidden;
+			font-size: 14px;
+			color: #4a4a4a;
+			font-weight: bold;
+		}
+		
+		.main iframe,
+		.main .previewWrap {
+			width: 320px;
+			height: 475px;
+			border: 1px white solid;
+			border-top: none;
+			border-bottom: none;
+			background: white;
+		}
+		
+		.main .ctrl_panel {
+			position: absolute;
+			top: 102px;
+			right: -35px;
+			width: 25px;
+			background: #71b643;
+			border-top-right-radius: 5px;
+			border-bottom-right-radius: 5px;
+			font-size: 14px;
+			color: white;
+			padding: 10px 0;
+			padding-left: 10px;
+			line-height: 17px;
+		}
+		
+		.main #code .txt {
+			color: white;
+			border-radius: 5px;
+			font-weight: bold;
+		}
+		
+		.main #code #view_reg {
+			font-size: 15px;
+			border: 1px solid #fff;
+			border-radius: 5px;
+			height: 42px;
+			line-height: 42px;
+			text-align: center;
+			background: rgb(255, 255, 255, 2)
+		}
+		
+		.main #code div {
+			color: #fff;
+			font-size: 13px;
+			margin: 10px 0;
+		}
+		
+		.main .link {
+			color: rgb(104, 187, 48);
+			font-weight: bold;
+		}
+		
+		#support {
+			position: absolute;
+			bottom: 10px;
+			right: 10px;
+			font-size: 14px;
+			color: white;
+		}
+		
+		#support .linktoindex {
+			color: white;
+			text-decoration: none;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div class="main">
+		<div class="mobile">
+			<div class="top"></div>
+			<div class="bar"></div>
+			<div class="title">邀请函·会议邀请函</div>
+
+			<iframe id="mobile-preview" src="" frameborder="0" scrolling="no"></iframe>
+
+			<div class="bottom"></div>
+			<div class="ctrl_panel"><a id="change_page" type="button" class="next_btn btn" onclick="nextPage()">请按下鼠标 ， 并拖动</a></div>
+		</div>
+		<div class="guide">
+			<div id="code">
+				<div class="txt">扫一扫，手机体验效果更真实准确！</div>
+				<img id="codeImg" src="http://static.weikecj.cn/upload/qrcode/1164/qrcode_106867_192297.png" width="240" alt="">
+				<div class="bdsharebuttonbox">
+					<a href="#" class="bds_more" data-cmd="more"></a>
+					<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+					<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+					<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+					<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+					<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+				</div>
+				<script>
+					window._bd_share_config = {
+						"common": {
+							"bdSnsKey": {},
+							"bdText": "",
+							"bdMini": "2",
+							"bdMiniList": false,
+							"bdPic": "",
+							"bdStyle": "0",
+							"bdSize": "32"
+						},
+						"share": {}
+					};
+					with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+				</script>
+				<div id="view_reg">
+
+					去除版权广告&nbsp;→&nbsp;<span><a class="link" target="_blank" href="/account.jsp">升级高级用户</a></span>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		document.getElementById('mobile-preview').src = 'mobile-preview.html?preview=true';
+		document.getElementById('mobile-preview').onload = function() {
+			var obj = this.contentDocument;
+			var link = obj.createElement("link");
+			link.setAttribute("rel", "stylesheet");
+			link.setAttribute("type", "text/css");
+			link.setAttribute("href", 'css/pc-preview.css');
+			var heads = obj.getElementsByTagName("head");
+			if (heads.length)
+				heads[0].appendChild(link);
+			else
+				obj.documentElement.appendChild(link);
+		};
+	</script>
+	<!--<div id="support">技术支持 BY <a class="linktoindex" href="/">微客场景</a></div>-->
+</body>
+
+</html>

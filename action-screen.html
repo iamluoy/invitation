@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+<title></title>
+<meta charset="utf-8" />
+<meta name="apple-touch-fullscreen" content="YES" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta http-equiv="Expires" content="-1" />
+<meta http-equiv="pragram" content="no-cache" />
+<link rel="stylesheet" href="css/smoothness/jquery-ui-1.10.0.custom.min.css?v=20160410" />
+<link rel="stylesheet" href="css/mobile/main.css?v=20160410" />
+<link rel="stylesheet" href="css/mobile/add2home.css?v=20160410" />
+<link rel="stylesheet" href="css/mobile/animationEl.css?v=20160410" />
+<style type="text/css">
+body strong{
+	font-weight:bold!important;
+}
+.f-hide { display: none!important; }
+.video-con {
+	padding: 30px 0px;
+}
+
+.video-title {
+	padding: 15px 10px;
+}
+
+.video-title .f-tc {
+	font-size: 26px;
+	margin-bottom: 8px;
+	text-align: left;
+	font-weight: bold;
+}
+
+.video-title>p {
+	font-size: 24px;
+	line-height: 140%;
+	word-break: break-all;
+	padding-left: 1.5%;
+	height: auto;
+}
+.page-con{
+	height: 475px!important;
+}
+body{
+	zoom:1;
+}
+.m-page {
+	background: transparent;
+}
+
+.bar-container{position:absolute;}
+.bar-container .bar{position:absolute;z-index:99999;display:none;}.bar-container .bar-n{width:100%;height:5px;top:0;cursor:n-resize;background:url(image/edit/bar-g-1px.png) repeat-x}.bar-container .bar-s{width:100%;height:5px;bottom:0;cursor:s-resize;background:url(image/edit/bar-g-1px.png) repeat-x bottom}.bar-container .bar-e{width:5px;height:100%;top:0;right:0;cursor:e-resize;background:url(image/edit/bar-g-1px.png) repeat-y right}.bar-container .bar-w{width:5px;height:100%;top:0;cursor:w-resize;background:url(image/edit/bar-g-1px.png) repeat-y}.bar-container .bar-ne{top:-6px;right:-6px;cursor:ne-resize}.bar-container .bar-nw{top:-6px;left:-6px;cursor:nw-resize}.bar-container .bar-se{bottom:-6px;right:-6px;cursor:se-resize}.bar-container .bar-sw{bottom:-6px;left:-6px;cursor:sw-resize}.bar-container .bar-radius{width:12px;height:12px;background-color:#fff;border:1px solid #78C941;border-radius:12px}.bar-container .bar-line{width:2px;height:18px;top:-18px;left:50%;margin-left:-1px;background-color:#78C941}
+.bar-container .bar-radius{width:10px;height:10px;background-color:#fff;border:1px solid #78C941;border-radius:12px}.bar-container .bar-rotate{top:-27px;left:50%;margin-left:-5px;background-color:#78C941;border:none;cursor:url(image/edit/mouserotate.ico),default}.bar-container .bar-line{width:2px;height:18px;top:-18px;left:50%;margin-left:-1px;background-color:#78C941}
+
+.container1 > div, .container2 > div, .container3 > div {
+	width: 13px;
+	height: 13px;
+}
+.spinner {
+	margin: 36px auto;
+	width: 45px;
+	height: 45px;
+	position: relative;
+}
+
+</style>
+
+<!--移动端版本兼容 -->
+<script type="text/javascript">
+	
+	window.app=window.app?window.app:{};
+	window.app.activityId=window.parent.app.id;
+	window.app.basePath='http://192.168.16.231:8080/EE/invitation/';
+	window.app.uploadImgPath='http://cdn.weikecj.cn/';
+	window.app.uploadMusicPath='http://cdn.weikecj.cn/';
+	window.app.uploadVideoPath='null';
+	window.app.appId='wxa0927abbd1bee8f1';
+	
+	var jsVer = 9.222;
+	var phoneWidth = parseInt(window.screen.width);
+	var phoneScale = phoneWidth / 640;
+
+	var ua = navigator.userAgent;
+	if (/Android (\d+\.\d+)/.test(ua)) {
+		var version = parseFloat(RegExp.$1);
+		// andriod 2.3
+		if (version > 2.3) {
+			document.write('<meta name="viewport" content="width=640, minimum-scale = '+phoneScale+', maximum-scale = '+phoneScale+', target-densitydpi=device-dpi">');
+			// andriod 2.3以上
+		} else {
+			document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+		}
+		// 其他系统
+	} else {
+		document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+	}
+</script>
+<!--移动端版本兼容 end -->
+</head>
+
+<body style="width:320px;min-width:320px;">
+	
+	
+
+
+
+
+
+<script>
+var lastDataObj=window.parent.app.data[window.parent.app.data.length-1];
+var _loadinglogo=lastDataObj.loadinglogo?lastDataObj.loadinglogo:window.app.basePath+'img/7924ed0c-ea4c-4501-8b89-44dbb781c9dc.GIF';
+_loadinglogo=window.app.uploadImgPath+_loadinglogo.replace('[upload]','');
+document.write('<section class="u-alert" style="top:46%;"><img style="width:60px;" src="'+window.app.basePath+'img/7924ed0c-ea4c-4501-8b89-44dbb781c9dc.GIF" /></section>');
+</script>
+<div class="u-mask">
+</div>
+
+	
+	<!-- 声音控件 -->
+	<section class='u-audio css_voice f-hide' style="display:none;" data-src=''>
+		<p id='coffee_flow' class="btn_audio">
+			<strong class='txt_audio z-hide'>关闭</strong> <span
+				class='css_sprite01 audio_open'></span>
+		</p>
+	</section>
+	<!-- 声音控件 end-->
+
+	<!-- page页面内容 -->
+	<section class='p-ct' style="width:320px">
+		<div class='translate-back'>
+		
+		</div>
+	</section>
+	
+	<!-- page页面内容  end-->
+
+	<!--脚本加载-->
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js?v=20160410"></script>
+	<script type="text/javascript" src="js/jquery-ui-min.js?v=20160410"></script>
+	<script type="text/javascript" src="js/mobile/url.js?v=20160410"></script>
+	<script type="text/javascript" src="js/mobile/loading_.js?v=20160410"></script>
+	<script type="text/javascript">
+	//每加载一次页面换一次外层的菜单，防止重复绑定事件
+	$('.create-menu ul',window.parent.document).remove();
+	var newUl='<ul style="display: none; left: 50px; top: 50px;"> '+
+					'	<li id="bring-top">置于顶层</li> '+
+					'	<li id="bring-up">上移一层</li> '+
+					'	<li id="bring-down">下移一层</li> '+
+					'	<li id="bring-bottom">置于底层</li> '+
+					'	<li class="menu-line"></li> '+
+					'	<li id="copy-item">复制</li> '+
+					'	<li class="menu-line"></li> '+
+					'	<li id="delete-item" class="caution">删除 (←)</li> '+
+					'</ul>';
+	$('.create-menu',window.parent.document).append(newUl);
+	</script>
+	<script type="text/javascript" src="js/data2view.js?v=20160410"></script>
+	<script type="text/javascript">
+	//初始化页面元素
+	//获取url中的参数  
+	function getUrlParam(name) {
+		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象  
+		var r = location.search.substr(1).match(reg); //匹配目标参数  
+		if (r != null) return unescape(r[2]);
+		return null; //返回参数值  
+	}
+	var globalData=window.parent.app.data[getUrlParam('page')];
+	initEl(globalData);
+	</script>
+	<script type="text/javascript" src="js/bar.js?v=20160410"></script>
+	<script type="text/javascript" src="js/layer.js?v=20160410"></script>
+	<script type="text/javascript" src="js/key.js?v=20160410"></script>
+	<script type="text/javascript" src="js/select.js?v=20160410"></script>
+	<script type="text/javascript">
+	
+		var hasHndleAnimation=false;
+		
+		$(function() {
+			
+			//初始化高度
+			$(".translate-back").height($(window).height());
+			$(".m-page").height($(window).height());
+			$(".page-con").height($(window).height() + 2);
+			//禁止右键事件
+			$(document).bind("contextmenu",function(e){
+		        return false;
+		    });
+			$(document).click(function(e){
+				if(!$(e.target).is('.create-menu ul li') && $menuUl.css('display')=='block'){
+					$menuUl.hide();
+					$(window.parent.document.body).css('height','auto');
+				}
+				if(!$(e.target).is(Bar.currEl) && !$(e.target).is($menuUl.find('li')) && !$(e.target).closest('.bar-container').is(Bar.currEl) && !mouse_hasSelect){
+					$('.bar-container .bar').hide();
+					$('.main .top .editBackground',window.parent.document).click();
+				}
+			});
+			
+			//3.5秒后强制打开
+			setTimeout(function(){
+				loading.hide();
+				$(".m-page").eq(0).removeClass('f-hide-animation').removeClass('f-hide');
+				if(!hasHndleAnimation){
+					hasHndleAnimation=true;
+					var $animationEl=$(".m-page").eq(0).find('.animationEl');
+					$animationEl.each(function(){
+						var $self=$(this);
+						handleAnimation($(this));				
+					});					
+				}
+			},3500);
+			
+		});
+	</script>
+	<!--脚本加载 end-->
+</body>
+</html>

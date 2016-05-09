@@ -1,0 +1,183 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>微客场景注册</title>
+<meta name="keywords" content="免费,微场景,微信场景应用,场景应用,微杂志,免费邀请函,电子请柬,电子贺卡,电子杂志,微海报,电子海报,指尖海报,微画册,微客场景">
+<meta name="description" content="微客场景是免费制作微信场景应用的运营服务平台，微场景是移动互联网的新型信息连接方式，微客场景将为您提供免费，稳定、流畅的贴心服务，行业领先，值得信赖！">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,minimum-scale=1,user-scalable=no,maximum-scale=1,initial-scale=1" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+<script type="text/javascript" src="js/jquery-1.7.2.min.js?v=20160410"></script>
+<script type="text/javascript" src="js/jquery.cookie.min.js?v=20160410"></script>
+<style type="text/css">
+html{
+	height:100%;
+	min-height:100%;
+}
+body{
+	margin:0px;
+	padding:0px;
+	font-family: 'Microsoft Yahei', 微软雅黑, 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Segoe UI', Tahoma, Arial, STHeiti, sans-serif;
+	background: linear-gradient(to bottom, rgba(253,253,251,1) 0%,rgba(248,246,241,1) 1%,rgba(245,242,235,1) 100%);
+	height:100%;
+	min-height:100%;
+}
+.header{
+	border-top: 3px solid #71b643;
+	background: -moz-linear-gradient(top, rgba(253,253,251,1) 0%, rgba(248,246,241,1) 1%, rgba(245,242,235,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(253,253,251,1)), color-stop(1%,rgba(248,246,241,1)), color-stop(100%,rgba(245,242,235,1)));
+	background: -webkit-linear-gradient(top, rgba(253,253,251,1) 0%,rgba(248,246,241,1) 1%,rgba(245,242,235,1) 100%);
+	background: -o-linear-gradient(top, rgba(253,253,251,1) 0%,rgba(248,246,241,1) 1%,rgba(245,242,235,1) 100%);
+	background: -ms-linear-gradient(top, rgba(253,253,251,1) 0%,rgba(248,246,241,1) 1%,rgba(245,242,235,1) 100%);
+	background: linear-gradient(to bottom, rgba(253,253,251,1) 0%,rgba(248,246,241,1) 1%,rgba(245,242,235,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fdfdfb', endColorstr='#f5f2eb',GradientType=0 );
+	-webkit-box-shadow: 1px 3px 5px #B5ADA2;
+	-moz-box-shadow: 1px 3px 5px #B5ADA2;
+	box-shadow: 1px 3px 5px #B5ADA2;
+	padding: 13px;
+}
+.no_reg,.has_reg{
+	display:none;
+}
+.no_reg .body{
+	padding:20px;
+}
+.no_reg .item label,.no_reg .item input{
+	font-size:16px;
+	width:100%;
+	margin:6px 0px;
+}
+.no_reg .item input{
+	margin-bottom:10px;
+	height:30px;
+	border: 1px solid #ccc;
+	color: #575757;
+	padding: 4px;
+}
+.no_reg .item>a{
+	text-decoration: none;
+	background: #59a824;
+	display: inline-block;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	background: #71b643;
+	border-radius: 2px;
+	color: #fff;
+	font-size: 18px;
+	text-align: center;
+	margin-top:25px;
+	margin-bottom: 12px;
+}
+.has_reg>div,.has_reg>h3{
+	text-align:center;
+	margin:10px 0px;
+}
+.has_reg .reg_email{
+	text-decoration: underline;
+	color:blue;
+}
+</style>
+
+</head>
+<body>
+
+	<div class="no_reg">
+		<div class="header"><img src="http://static.weikecj.cn//weikechangjing/image/logo.png" width="137px"></div>
+		<div class="body">
+			<div class="item"><label>登录帐号：</label><br><input type="text" name="email" placeholder="邮箱帐号"></div>
+			<div class="item"><label>登录密码：</label><br><input type="password" name="password" placeholder="设置密码"></div>
+			<div class="item"><label>密码确认：</label><br><input type="password" name="check_password" placeholder="设置密码"></div>
+			<div class="item"><label>验证码：</label><br><input type="text" name="validCode" placeholder="验证码" style="width:65%;"><img id="rand" src="rand.jsp"  alt="验证码" onclick="show(this);" style="cursor: pointer;vertical-align: -6px;margin-left: 3px;width: 75px;vertical-align: -9px;margin-left: 4px;"></div>
+			<div class="item"><a id="reg" href="javascript:void(0)">注册</a></div>
+		</div>
+	</div>
+	
+	<div class="has_reg">
+		<div class="header" style="text-align:left;margin-bottom:25px;margin-top: 0px;"><img src="http://static.weikecj.cn//weikechangjing/image/logo.png" width="137px"></div>
+		<h3>恭喜您，注册成功</h3>
+		<div>注册帐号：<span class="reg_email"></span></div>
+		<div style="font-size:13px;">请在电脑网页端打开<strong style="text-decoration:underline;margin:0 2px;">www.weikecj.cn</strong>登录制作</div>
+		<div style="font-size:13px;">只需轻松几步，即可拥有炫酷的翻页场景！</div>
+	</div>
+	
+	<script type="text/javascript">		
+	   var cookie_key='weikecj_uname'; 
+	   var cookie_val=$.cookie(cookie_key);
+	   if(cookie_val){
+		   $('.has_reg').show();
+		   $('.has_reg .reg_email').html(cookie_val);
+	   }else{
+		   $('.no_reg').show();		   
+	   }
+       function show(o){
+	       o.src="rand.jsp?index="+Math.random()*100+Math.random()*10+Math.random();
+	   }	
+       $(function(){
+    	 //标志位，防止重复点击
+   		var reging = false;
+   		function reg(){
+   			if (reging) return;
+   			var username = $('input[name="email"]').val();
+   			var password = $('input[name="password"]').val();
+   			var check_password = $('input[name="check_password"]').val();
+   			var nickname = $('input[name="nickname"]').val();
+   			var phone = $('input[name="phone"]').val();
+   			var validCode =  $('input[name="validCode"]').val();
+   			//校验
+   			if ($.trim(username).length == 0 || $.trim(password).length == 0 || $.trim(check_password).length == 0 || $.trim(validCode).length == 0/*  || $.trim(nickname).length == 0 || $.trim(phone).length == 0 */) {
+   				alert('请填写完整的注册信息');
+   				return;
+   			}
+   			if(username.indexOf('.com')==-1&&username.indexOf('.cn')==-1&&username.indexOf('.net')==-1&&username.indexOf('.org')==-1){
+   				alert('邮箱帐号输入不正确');
+   				return;
+   			}
+   			if (password!=check_password) {
+   				alert('两次密码输入不一致');
+   				return;
+   			}
+   			username=username.replace('＠','@');
+   			
+   			/* if(phone.length!=11 || isNaN(phone)){
+   				alert('手机号码输入不正确');
+   				return;
+   			} */
+   			reging = true;
+   			$.post('/admin/user/register', {
+   				username : username,
+   				password : password,
+   				nickname : nickname,
+   				phone : phone,
+   				origin : 'mobile',
+   				validCode : validCode
+   			}, function(result) {
+   				reging = false;
+   				if (result.success) {		
+   					//记录cookie，提示登录
+   					$.cookie(cookie_key,username);
+   					location.reload();
+   				} else {
+   					if(result.msg){
+   						alert(result.msg);
+   					}else{
+   	   					alert('注册失败，请重试');
+   					}
+   				}
+   			}, 'json');
+   		}
+   		$('#reg').click(reg);
+       });
+    </script>
+
+</body>
+</html>

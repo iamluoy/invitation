@@ -1,0 +1,16 @@
+[
+	{
+		"type": "animation",
+		"bg": "",
+		"isMusic": false,
+		"musicUrl": "",
+		"anm": [],
+		"canDelete": false
+	}, {
+		"type": "share",
+		"title": "空模版分享标题",
+		"description": "空模版分享描述",
+		"logo": "[upload]2015/3/weikecj/1/4515a59d-6841-4df0-be9c-6ceac690d859.jpg",
+		"canDelete": false
+	}
+]

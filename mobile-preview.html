@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+<title>邀请函·会议邀请函</title>
+<meta charset="utf-8" />
+<meta name="keywords" content="免费,微场景,微信场景应用,微客场景,邀请函·会议邀请函">
+<meta name="description" content="“邀请函·会议邀请函”——微客场景平台出品！">
+<meta name="author" content="微客场景">
+<meta name="apple-touch-fullscreen" content="YES" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta http-equiv="Expires" content="-1" />
+<meta http-equiv="pragram" content="no-cache" />
+<link rel="stylesheet" href="css/mobile/copyright.css?v=20160410" />
+<link rel="stylesheet" href="picker/default.css?v=20160410" />
+<link rel="stylesheet" href="picker/default.date.css?v=20160410" />
+<link rel="stylesheet" href="picker/default.time.css?v=20160410" />
+<link rel="stylesheet" href="css/mobile/main.css?v=20160410" />
+<link rel="stylesheet" href="css/mobile/add2home.css?v=20160410" />
+<link rel="stylesheet" href="css/mobile/animationEl.css?v=20160410" />
+<style type="text/css">
+/*accelerate*/
+.css {
+   -webkit-transform: translate3d(0, 0, 0);
+   -moz-transform: translate3d(0, 0, 0);
+   -ms-transform: translate3d(0, 0, 0);
+   transform: translate3d(0, 0, 0);
+}
+body strong{
+	font-weight:bold!important;
+}
+.video-con {
+	padding: 30px 0px;
+}
+
+.video-title {
+	padding: 15px 10px;
+}
+
+.video-title .f-tc {
+	font-size: 26px;
+	margin-bottom: 8px;
+	text-align: left;
+	font-weight: bold;
+}
+
+.video-title>p {
+	font-size: 24px;
+	line-height: 140%;
+	word-break: break-all;
+	padding-left: 1.5%;
+	height: auto;
+}
+
+/*.page-con{
+	height: 950px!important;
+}
+body{
+	zoom:0.5;
+	cursor:pointer;
+}*/
+
+.m-words-wall{
+	  -webkit-transition: all .1s;
+	  -moz-transition: all .1s;
+	  transition: all .1s;
+	  top:0px;
+}
+.m-words-wall .wrap{
+	  -webkit-transition: all .5s;
+	  -moz-transition: all .5s;
+	  transition: all .5s;
+}
+.m-words-wall .wrap.message-hide{
+  transform: translateY(130%);
+  -webkit-transform: translateY(130%);
+}
+.m-contactFormLayer .m-contactForm{
+  transition: transform 0.5s;
+  transform: translateY(-150%);
+  -webkit-transition: -webkit-transform 0.5s;
+  -webkit-transform: translateY(-150%);
+}
+
+.m-contactFormLayer.z-show .m-contactForm {
+  -webkit-transform: translateY(0%);
+}
+
+.noanm{
+  -webkit-transition: inherit;
+  -moz-transition: inherit;
+  -ms-transition: inherit;
+  -o-transition: inherit;
+   transition: inherit;
+}
+
+.u-audio {
+  top: 15px;
+ }
+ .m-contactForm dl dt {
+  width: 112px;
+}
+
+.m-iframe .content {  
+    -webkit-overflow-scrolling: touch;  
+    overflow-y: scroll;  
+    /* 提示: 请在此处加上需要设置的大小(dimensions)或位置(positioning)信息! */  
+} 
+.iframe_btn{
+	display: block;
+	width: 100px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 25px;
+	color: white;
+	border: 2px solid white;
+	text-align: center;
+	border-radius: 8px;
+}
+#no_word_copyright{
+	position:absolute;
+	top:0px;
+	left:0px;
+	/*fadeout*/
+}
+#no_word_copyright{-webkit-animation:0.8s ease-in 0.62s forwards alternate;-moz-animation:0.8s ease-in 0.62s forwards alternate;-ms-animation:0.8s ease-in 0.62s forwards alternate;animation:0.8s ease-in 0.62s forwards alternate;}
+#no_word_copyright{-webkit-animation-name:fadeout;-moz-animation-name:fadeout;-ms-animation-name:fadeout;animation-name:fadeout;}
+#no_word_copyright{-webkit-animation-iteration-count:8;-moz-animation-iteration-count:8;-ms-animation-iteration-count:8;animation-iteration-count:8;}
+
+</style>
+
+<script type="text/javascript" src="js/jquery-1.7.2.min.js?v=20160410"></script>
+<script type="text/javascript" src="js/mobile/offline.js?v=20160410"></script>
+<!--移动端版本兼容 -->
+<script type="text/javascript">
+	
+	window.app=window.app?window.app:{};
+	window.app.invitation_id='d7df54fc-c313-11e5-9766-0697249d8e49';
+	window.app.basePath='http://192.168.16.231:8080/EE/invitation/';
+	window.app.uploadImgPath='http://cdn.weikecj.cn/';
+	window.app.uploadMusicPath='http://cdn.weikecj.cn/';
+	window.app.uploadVideoPath='null';
+	window.app.appId='wxa0927abbd1bee8f1';
+	window.app.jsApiTicket='sM4AOVdWfPE4DxkXGEs8VLzqVR5G4BeIJaRC6w3qU6DTmfOpeHG7eSUgFWufz5cYG8Y117PB_AlKxXS4ZP0Ofw';
+
+	var jsVer = 9.222;
+	var phoneWidth = parseInt(window.screen.width);
+	var phoneScale = phoneWidth / 640;
+	window.app.phoneScale=phoneScale;
+
+	var ua = navigator.userAgent;
+	if (/Android (\d+\.\d+)/.test(ua)) {
+		var version = parseFloat(RegExp.$1);
+		// andriod 2.3
+		if (version > 2.3) {
+			document.write('<meta name="viewport" content="width=640, minimum-scale = '+phoneScale+', maximum-scale = '+phoneScale+', target-densitydpi=device-dpi">');
+			// andriod 2.3以上
+		} else {
+			document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+		}
+		// 其他系统
+	} else {
+		document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+	}
+</script>
+<!--移动端版本兼容 end -->
+</head>
+
+<body>
+	
+	
+
+<span id="checkfont" style="font-size:12px;position: absolute;z-index:-1;opacity:0;">字</span>
+<div id="checkfontdiv" style="width:12px;position: absolute;z-index:-1;;opacity:0;"></div>
+<span id="checkfont24" style="font-size:24px;position: absolute;z-index:-1;opacity:0;">字</span>
+<div id="checkfontdiv24" style="width:24px;position: absolute;z-index:-1;;opacity:0;"></div>
+<span id="checkfont26" style="font-size:26px;position: absolute;z-index:-1;opacity:0;">字</span>
+<div id="checkfontdiv26" style="width:26px;position: absolute;z-index:-1;;opacity:0;"></div>
+<span id="checkfont28" style="font-size:28px;position: absolute;z-index:-1;opacity:0;">字</span>
+<div id="checkfontdiv28" style="width:28px;position: absolute;z-index:-1;;opacity:0;"></div>
+<span id="checkfont32" style="font-size:32px;position: absolute;z-index:-1;opacity:0;">字</span>
+<div id="checkfontdiv32" style="width:32px;position: absolute;z-index:-1;;opacity:0;"></div>
+<span id="checkfont36" style="font-size:36px;position: absolute;z-index:-1;opacity:0;">字</span>
+<div id="checkfontdiv36" style="width:36px;position: absolute;z-index:-1;;opacity:0;"></div>
+<span id="checkfont48" style="font-size:48px;position: absolute;z-index:-1;opacity:0;">字</span>
+<div id="checkfontdiv48" style="width:48px;position: absolute;z-index:-1;;opacity:0;"></div>
+<span id="checkfont64" style="font-size:64px;position: absolute;z-index:-1;opacity:0;">字</span>
+<div id="checkfontdiv64" style="width:64px;position: absolute;z-index:-1;;opacity:0;"></div>
+<span id="checkfont96" style="font-size:96px;position: absolute;z-index:-1;opacity:0;">字</span>
+<div id="checkfontdiv96" style="width:96px;position: absolute;z-index:-1;;opacity:0;"></div>
+<script>
+var userAgent_ = navigator.userAgent;
+var isAndroid = userAgent_.indexOf('Android') > -1 || userAgent_.indexOf('Linux') > -1;
+var fontAdjust=false;
+if(isAndroid && $('#checkfont').width()<$('#checkfontdiv').width()){
+	//安卓微信微调
+	fontAdjust={
+		"font12":$('#checkfontdiv24').width()-$('#checkfont24').width(),
+		"font13":$('#checkfontdiv26').width()-$('#checkfont26').width(),
+		"font14":$('#checkfontdiv28').width()-$('#checkfont28').width(),
+		"font16":$('#checkfontdiv32').width()-$('#checkfont32').width(),
+		"font18":$('#checkfontdiv36').width()-$('#checkfont36').width(),
+		"font24":$('#checkfontdiv48').width()-$('#checkfont48').width(),
+		"font32":$('#checkfontdiv64').width()-$('#checkfont64').width(),
+		"font48":$('#checkfontdiv96').width()-$('#checkfont96').width()
+	};
+}
+if (self == top) {
+	//top.location.href = self.location.href;
+}
+$(function(){
+	setTimeout(function(){
+		//标识字体是否需要调整（因为有些手机浏览器字体变大了许多）
+		if(isAndroid && $('#checkfont').width()-$('#checkfontdiv').width()>=2){
+			
+			var w1=$('#checkfontdiv').width();
+			var w2=$('#checkfont').width();
+			var b1=$('#checkfontdiv').width()*$('#checkfontdiv').width();
+			var b2=$('#checkfont').width()*$('#checkfont').width();
+			
+			//提示框
+			$('.u-note').css('font-size',(26*w1/w2)+'px');
+			
+			//预约弹框
+			$('.m-contactForm h2 span').css('font-size',(30*w1/w2)+'px');
+			$('.m-contactForm .btn-submit').css('font-size',(35*w1/w2)+'px').css('line-height',(98*w1/w2)+'px');
+			$('.m-contactForm dl dt').css('font-size',Math.floor(26*w1/w2)+'px');
+			$('.m-contactForm dl dd').css('line-height',Math.ceil((49*w1/w2))+'px');
+			$('.m-contactForm dl dd input[type="text"]').css('font-size',(28*w1/w2)+'px').height((36*w1/w2)).css('line-height',(36*w1/w2)+'px').css('margin-top','-10px');
+			$('.m-contactForm dl dd select').css('font-size',(28*w1/w2)+'px').height((36*w1/w2)).css('line-height',(36*w1/w2)+'px').css('margin-top','-10px');
+			
+			//留言弹框
+			$('.m-words-wall .title h3').css('font-size',(40*w1/w2)+'px').css('line-height',(88*w1/w2)+'px');
+			$('.m-words-form .btn.j-wall-submit span').css('font-size',(40*w1/w2)+'px');
+			$('.m-words-form .btn.j-wall-submit').css('line-height',(60*w1/w2)+'px');
+			$('.m-words-detail h3 span').css('font-size',(28*w1/w2)+'px');
+			var $style=$('<style>.m-words-detail .detail-item h4 span{font-size:'+(24*w1/w2)+'px;}.m-words-detail .detail-item p{font-size:'+(24*w1/w2)+'px;}.m-words-detail .detail-item h4 strong{font-size:'+(22*w1/w2)+'px;}</style>')
+			$('body').prepend($style);
+			
+			var $textEl=$('.animationEl[eltype="text"]>div.rotate');
+			$textEl.each(function(){
+				var $self=$(this);
+				$self.css('font-size',(parseFloat($self.css('font-size'))*b1/b2)+'px');
+			});
+			var $buttonEl=$('.animationEl[eltype="button"]>div.rotate');
+			$buttonEl.each(function(){
+				var $self=$(this);
+				$self.css('font-size',(parseFloat($self.css('font-size'))*b1/b2)+'px');
+			});
+			var $vedioEl=$('.animationEl[eltype="vedio"]>div.rotate');
+			$vedioEl.each(function(){
+				var $self=$(this);
+				$self.css('font-size',(parseFloat($self.css('font-size'))*b1/b2)+'px');
+			});
+			var $bookEl=$('.animationEl[eltype="book"]>div.rotate');
+			$bookEl.each(function(){
+				var $self=$(this);
+				$self.css('font-size',(parseFloat($self.css('font-size'))*b1/b2)+'px');
+			});
+			var $messageEl=$('.animationEl[eltype="message"]>div.rotate');
+			$messageEl.each(function(){
+				var $self=$(this);
+				$self.css('font-size',(parseFloat($self.css('font-size'))*b1/b2)+'px');
+			});
+			
+		}
+	},200);	
+});
+</script>
+	
+
+
+
+
+
+
+
+
+<style>
+.u-alert {
+  top:46%;
+  width: 140px;
+  height: 140px;
+  margin: -70px 0 0 -70px;
+  line-height: 140px;
+}
+.u-alert>img{
+	width:120px;
+}
+</style>
+
+
+<style>
+.u-mask{
+	text-align: center;
+}
+.u-mask span{
+	color: #57962D;
+	font-size: 22px;
+	position: absolute;
+	width: 100%;
+	left: 0px;
+	bottom: 18px;
+	text-align: center;
+}
+.u-alert{
+	top:45.5%;
+}
+</style>   
+ 
+<!--模版加载提示-->
+
+<section class="u-alert">
+	<img src="img/7924ed0c-ea4c-4501-8b89-44dbb781c9dc.GIF" />
+</section>
+<div class="u-mask">
+
+<!--<span>
+	Technique Supported by 微客场景
+</span>-->
+
+</div>
+<!--模版加载提示 end-->
+
+
+	<!-- 声音控件 -->
+	<section class='u-audio f-hide' data-src=''>
+		<p id='coffee_flow' class="btn_audio">
+			<strong class='txt_audio z-hide'>关闭</strong> <span
+				class='css_sprite01 audio_open round to_round'></span>
+		</p>
+	</section>	
+	<!-- 声音控件 end-->
+	
+	<!-- 箭头指示引导 -->
+	<section class='u-arrow f-hide'>
+		<p class="css_sprite01"></p>
+	</section>
+	<!-- 箭头指示引导 end-->
+
+	<section class="u-note error"></section>
+	<section class="u-note sucess"></section>
+
+	<div id="j-mengban" class="translate-front noanm z-hide" style="  z-index: 999;display: none;">
+		<div class="mengban-warn" style="display: none;"></div>
+	</div>
+
+	<!-- page页面内容 -->
+	<section class='p-ct'>
+		<div class='translate-back'>
+		
+		</div>
+	</section>
+	<!-- page页面内容  end-->
+
+	<div id="shareMask"></div>
+	
+	<img id="shareImg" src="image/mobile/weixin-share-guide.png">
+	
+
+	<!-- 视频 -->
+	<div class="u-maskLayer m-youkuVideoLayer z-hide" style="display: none;background-color: rgba(0, 0, 0, 0.7);">
+		<div class="m-Video-box" style="position: absolute;top: 250px;width:640px;height:480px;" id="videoBody"></div>
+		<a href="javascript:void(0);" class="u-maskLayer-close" style="background: #000000;"></a>
+	</div>
+	
+	<!-- 留言板 -->
+	<div class="m-words-wall m-message" style="display: none;opacity:0;">
+		<div class="wrap" style="bottom:-3000px;">
+			<div class="title" style="background: #e8415f">
+				<h3>留言墙</h3>
+				<span class="close j-wall-close"
+					style="right: 15px; width: 80px; height: 65px;"><img
+					style="margin-left: 20px;"
+					src="image/mobile/words_btn_03.png"></span> <span
+					class="edit j-wall-edit"><img
+					src="image/mobile/words_btn_02.png"></span>
+			</div>
+			<div class="content">
+				<div class="content-wrap"
+					style="transition: 0ms cubic-bezier(0.1, 0.57, 0.1, 1); -webkit-transition: 0ms cubic-bezier(0.1, 0.57, 0.1, 1); transform: translate(0px, 0px);">
+					<div class="m-words-form">
+						<p class="con">
+							<textarea maxlength="140" class="j-wall-txt" name="content"
+								placeholder="请留下您想说的话" style="background: white;"></textarea>
+							<span>限140字</span>
+						</p>
+						<p class="name">
+							<input maxlength="20" class="j-wall-input" name="name"
+								type="text" value="" placeholder="请留下您的姓名"
+								style="background: white;">
+						</p>
+						<p class="btn j-wall-submit" style="background: #e8415f">
+							<span>发送</span><img
+								src="image/mobile/words_icon_01.png">
+						</p>
+					</div>
+					<div class="m-words-detail">
+						<h3>
+							<span>最新留言</span>
+						</h3>
+						<ul>
+							<li class="detail-item more" lastid="" style="display: none;">
+								<p>点击加载更多</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 预约 -->
+	<div class="u-maskLayer m-contactFormLayer z-hide" style="display: none;">
+		<div>
+			<div class="m-contactForm">
+				<h2>
+					<span>标题</span>
+				</h2>
+				<form method="post" id="formContact">
+					<div class="item-content" style="overflow: auto; height: 390px;">
+					</div>
+					<a class="btn-submit"
+						style="background-color: #e8415f; text-align: center;">立即提交</a>
+				</form>
+			</div>
+		</div>
+		<a href="javascript:void(0);" class="u-maskLayer-close"
+			style="background-color: #e8415f"></a>
+	</div>
+	
+	<!-- 页面层 -->
+	<div class="m-words-wall z-hide m-iframe" style="display: none;opacity:0;">
+		<div class="wrap" style="top:2000px;">
+			<div class="title" style="background: #e8415f">
+				<h3><span style="display: inline-block;overflow: hidden;width: 280px;white-space: nowrap;text-overflow: ellipsis;">页面层</span></h3>
+				<span class="close j-wall-close"
+					style="right: 27px; width: 110px;height: 60px;"><span class="iframe_btn">关闭</span></span> <span
+					class="edit j-wall-edit" style="width: 110px;height: 60px;"><span class="iframe_btn">重置</span></span>
+			</div>
+			<div class="content">
+				<iframe style="width:100%;height:100%;" scrolling="yes" frameborder="0"></iframe>
+			</div>
+		</div>
+	</div>
+	
+	
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+<div class='market-notice f-hide' data-action='Action://app_open'>
+	
+	<img src='image/mobile/market-notice.png' />
+	
+</div>
+<div class='market-page f-hide' data-action='Action://app_close'>
+	<div class='market-img'>
+		<a
+			href='reg_mobile.html'>
+			<img
+			src='image/mobile/market-app.png' />
+		</a> <a href='http://www.weijuju.com/mobile/wsite/wsite.jsp?sid=42812CCAV3edcvfr4'> <img
+			src='image/mobile/market-tel.png?v=new' />
+		</a>
+	</div>
+</div>
+
+
+	<!--脚本加载-->
+	<script type="text/javascript" src="js/mobile/util.js?v=20160410"></script>
+	<script type="text/javascript" src="js/mobile/share.js?v=20160410"></script>
+	<script type="text/javascript" src="js/mobile/url.js?v=20160410"></script>
+	<script type="text/javascript" src="js/mobile/page/_data2view.js?v=20160410"></script>
+	<script type="text/javascript">
+	//前三张背景图片加载完成以及所有动画图片加载完成后执行回调方法，loadingStep为标志位
+	window.loadingStep=0; 
+	//初始化页面元素
+	//var globalData=eval('('+'[{"type":"animation","bg":"[upload]2016/0/weikecj/17/a3ec15f1-efdd-4b30-bdff-1a0204fe641f.jpg","isMusic":true,"musicUrl":"http://www.weikecj.cn/music.jsp?url=http%3A%2F%2Fres.70c.com%2Fgroup1%2FM00%2FB7%2F4F%2Fyq0KA1RHT1WAZ-w2AAeiSMo8hRo849.mp3","anm":[{"delay":0,"duration":0,"func":"","funcContent":"","width":798,"height":488,"initPos":"bottom","offsetX":0,"offsetY":0,"opacity":0,"rotate":"0","src":"[upload]2016/0/weikecj/17/adc8707f-f336-4140-b0da-70cc113517da.png","type":"a-fadein","yuanjiao":0,"zIndex":"1","disappearDuration":0,"disappearDelay":0},{"delay":"3.5","duration":"0.5","func":"","funcContent":"","width":438,"height":116,"initPos":"center","offsetX":1,"offsetY":278,"opacity":0,"rotate":"0","src":"[upload]2016/0/weikecj/17/d4762c35-3de8-46c5-a508-ca708eb0df02.png","type":"a-seal","yuanjiao":0,"zIndex":"4","disappearDuration":0,"disappearDelay":0},{"delay":"1.2","duration":1,"func":"","funcContent":"","width":542,"height":878,"initPos":"center","offsetX":-1,"offsetY":-13,"opacity":0,"rotate":"0","src":"[upload]2016/0/weikecj/17/c5ee0799-d5c6-41a8-a69e-50052934a23d.png","type":"a-bouncein","yuanjiao":0,"zIndex":"3","disappearDuration":0,"disappearDelay":0},{"delay":"0.8","duration":1,"func":"","funcContent":"","width":554,"height":910,"initPos":"center","offsetX":-9,"offsetY":-17,"opacity":0,"rotate":"0","src":"[upload]2016/0/weikecj/17/9206a94b-ab2f-4107-8ad2-6fa0d43ee41a.png","type":"a-bouncein","yuanjiao":0,"zIndex":"2","disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"&lt;div style=&quot;text-align:center;&quot;&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;&lt;strong&gt;请输入您的会议标题&lt;/strong&gt;&lt;/span&gt;&lt;/div&gt;","textFontsize":"16","textColor":"#228e87","delay":2,"duration":1,"func":"","funcContent":"","width":420,"height":54,"initPos":"center","offsetX":0,"offsetY":-367,"opacity":0,"rotate":"0","type":"a-bounceinR","yuanjiao":0,"zIndex":5,"disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"&lt;div style=&quot;text-align:center;&quot;&gt;\tPlease enter your annual title&lt;/div&gt;","textFontsize":"12","textColor":"#000000","delay":"2.1","duration":1,"func":"","funcContent":"","width":420,"height":54,"initPos":"center","offsetX":4,"offsetY":-323,"opacity":0,"rotate":"0","type":"a-bounceinL","yuanjiao":0,"zIndex":6,"disappearDuration":0,"disappearDelay":0},{"delay":"2.7","duration":1,"func":"","funcContent":"","width":434,"height":238,"initPos":"center","offsetX":-1,"offsetY":-139,"opacity":0,"rotate":"0","src":"[upload]2016/0/weikecj/17/9298703e-2cea-409c-ba1a-471b7f591540.png","type":"a-fadeinT","yuanjiao":0,"zIndex":7,"disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"&lt;div style=&quot;text-align:center;&quot;&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;&lt;span&gt;深圳市南山区高新南xxx大厦&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;","textFontsize":"12","textColor":"#ffffff","delay":"3.8","duration":1,"func":"","funcContent":"","width":422,"height":46,"initPos":"center","offsetX":3,"offsetY":253,"opacity":0,"rotate":"0","type":"a-fadeinR","yuanjiao":0,"zIndex":8,"disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"&lt;div style=&quot;text-align:center;&quot;&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;&lt;span&gt;2016-01-15&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;","textFontsize":"13","textColor":"#ffffff","delay":"3.8","duration":1,"func":"","funcContent":"","width":422,"height":46,"initPos":"center","offsetX":-1,"offsetY":309,"opacity":0,"rotate":"0","type":"a-fadeinL","yuanjiao":0,"zIndex":9,"disappearDuration":0,"disappearDelay":0}],"canDelete":false},{"type":"animation","bg":"[upload]2016/0/weikecj/17/a3ec15f1-efdd-4b30-bdff-1a0204fe641f.jpg","anm":[{"delay":"0.2","duration":"0.5","func":"","funcContent":"","width":830,"height":1134,"initPos":"center","offsetX":21,"offsetY":-1,"opacity":30,"rotate":"0","src":"[upload]2015/3/weikecj/1/38525c06-1551-41cb-acc4-d76d31e515e8.png","type":"a-fadein","yuanjiao":0,"zIndex":"1","disappearDuration":0,"disappearDelay":0,"textColor":"#ffffff"},{"delay":"0.8","duration":"0.8","func":"","funcContent":"","width":496,"height":92,"initPos":"center","offsetX":0,"offsetY":-402,"opacity":0,"rotate":"0","src":"[upload]2016/0/weikecj/17/5043b2ed-d94f-47c9-bcd0-94823bcf3e75.png","type":"a-bounceinL","yuanjiao":0,"zIndex":"2","disappearDuration":0,"disappearDelay":0,"textColor":"#ffffff"},{"elType":"text","textContent":"&lt;div style=&quot;text-align:center;&quot;&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;公司简介&lt;/span&gt;&lt;/div&gt;","textFontsize":16,"textColor":"#ffffff","delay":"1.2","duration":1,"func":"","funcContent":"","width":452,"height":50,"initPos":"center","offsetX":0,"offsetY":-419,"opacity":0,"rotate":"0","type":"a-fadeinR","yuanjiao":0,"zIndex":"3","disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"&lt;div style=&quot;text-align:center;&quot;&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;Company description&lt;/span&gt;&lt;/div&gt;","textFontsize":"13","textColor":"#ffffff","delay":"1.4","duration":1,"func":"","funcContent":"","width":342,"height":42,"initPos":"center","offsetX":3,"offsetY":-383,"opacity":0,"rotate":"0","type":"a-fadeinL","yuanjiao":0,"zIndex":"4","disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"&lt;p&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;XXXXXXXXXXXXXXXXXXXXXXXXXX&lt;/span&gt;&lt;/p&gt;&lt;p&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;&lt;span&gt;XXXXXXXXXXXXXXXXXXXXXXXXXX&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;&lt;span&gt;&lt;span&gt;XXXXXXXXXXXXXXXXXXXXXXXXXX&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;&lt;span&gt;&lt;span&gt;XXXXXXXXXXXXXXXXXXXXXXXXXX&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;&lt;span&gt;&lt;span&gt;XXXXXXXXXXXXXXXXXXXXXXXXXX&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;&lt;span&gt;&lt;span&gt;XXXXXXXXXXXXXXXXXXXXXXXXXX&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;&lt;span&gt;&lt;span&gt;XXXXXXXXXXXXXXXXXXXXXXXXXX&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;&lt;span&gt;&lt;span&gt;XXXXXXXXXXXXXXXXXXXXXXXXXX&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;&lt;span&gt;&lt;span&gt;XXXXXXXXXXXXXXXXXXXXXXXXXX&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;&lt;span&gt;&lt;span&gt;XXXXXXXXXXXXXXXXXXXXXXXXXX&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;&lt;span&gt;&lt;span&gt;XXXXXXXXXXX&lt;/span&gt;&lt;br /&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;","textFontsize":"13","textColor":"#ffffff","delay":"2.5","duration":1,"func":"","funcContent":"","width":452,"height":418,"initPos":"center","offsetX":0,"offsetY":-107,"opacity":0,"rotate":"0","type":"a-fadeinR","yuanjiao":0,"zIndex":"6","disappearDuration":0,"disappearDelay":0},{"delay":2,"duration":1,"func":"","funcContent":"","width":496,"height":470,"initPos":"center","offsetX":-4,"offsetY":-105,"opacity":0,"rotate":"0","src":"[upload]2016/0/weikecj/17/a9106995-fefd-4771-ba65-963e5027ec2f.png","type":"a-bounceinT","yuanjiao":0,"zIndex":"5","disappearDuration":0,"disappearDelay":0},{"delay":"3.8","duration":"0.4","func":"","funcContent":"","width":658,"height":430,"initPos":"bottom","offsetX":2,"offsetY":36,"opacity":0,"rotate":"0","src":"[upload]2016/0/weikecj/17/00b8dd10-5cef-411f-96af-40166ced338e.png","type":"a-bounceinB","yuanjiao":0,"zIndex":"7","disappearDuration":0,"disappearDelay":0}],"canDelete":false},{"type":"animation","bg":"[upload]2016/0/weikecj/17/a3ec15f1-efdd-4b30-bdff-1a0204fe641f.jpg","anm":[{"delay":"0.2","duration":"0.5","func":"","funcContent":"","width":830,"height":1134,"initPos":"center","offsetX":21,"offsetY":-1,"opacity":30,"rotate":"0","src":"[upload]2015/3/weikecj/1/38525c06-1551-41cb-acc4-d76d31e515e8.png","type":"a-fadein","yuanjiao":0,"zIndex":"1","disappearDuration":0,"disappearDelay":0,"textColor":"#ffffff"},{"delay":"0.8","duration":"0.8","func":"","funcContent":"","width":496,"height":92,"initPos":"center","offsetX":0,"offsetY":-402,"opacity":0,"rotate":"0","src":"[upload]2016/0/weikecj/17/5043b2ed-d94f-47c9-bcd0-94823bcf3e75.png","type":"a-bounceinL","yuanjiao":0,"zIndex":"2","disappearDuration":0,"disappearDelay":0,"textColor":"#ffffff"},{"elType":"text","textContent":"&lt;div style=&quot;text-align:center;&quot;&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;会议简介&lt;/span&gt;&lt;/div&gt;","textFontsize":16,"textColor":"#ffffff","delay":"1.2","duration":1,"func":"","funcContent":"","width":452,"height":50,"initPos":"center","offsetX":0,"offsetY":-419,"opacity":0,"rotate":"0","type":"a-fadeinR","yuanjiao":0,"zIndex":"3","disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"&lt;div style=&quot;text-align:center;&quot;&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;Session description&lt;/span&gt;&lt;/div&gt;","textFontsize":"13","textColor":"#ffffff","delay":"1.4","duration":1,"func":"","funcContent":"","width":342,"height":42,"initPos":"center","offsetX":3,"offsetY":-383,"opacity":0,"rotate":"0","type":"a-fadeinL","yuanjiao":0,"zIndex":"4","disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"&lt;p&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;XXXXXXXXXXXXXXXXXXXXXXXXXX&lt;/span&gt;&lt;/p&gt;&lt;p&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;&lt;span&gt;XXXXXXXXXXXXXXXXXXXXXXXXXX&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;&lt;span&gt;&lt;span&gt;XXXXXXXXXXXXXXXXXXXXXXXXXX&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;&lt;span&gt;&lt;span&gt;XXXXXXXXXXXXXXXXXXXXXXXXXX&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;&lt;span&gt;&lt;span&gt;XXXXXXXXXXXXXXXXXXXXXXXXXX&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;&lt;span&gt;&lt;span&gt;XXXXXXXXXXXXXXXXXXXXXXXXXX&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;&lt;span&gt;&lt;span&gt;XXXXXXXXXXXXXXXXXXXXXXXXXX&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;&lt;span&gt;&lt;span&gt;XXXXXXXXXXXXXXXXXXXXXXXXXX&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;&lt;span&gt;&lt;span&gt;XXXXXXXXXXXXXXXXXXXXXXXXXX&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;&lt;span&gt;&lt;span&gt;XXXXXXXXXXXXXXXXXXXXXXXXXX&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;&lt;span&gt;&lt;span&gt;XXXXXXXXXXX&lt;/span&gt;&lt;br /&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;","textFontsize":"13","textColor":"#ffffff","delay":"2.5","duration":1,"func":"","funcContent":"","width":452,"height":418,"initPos":"center","offsetX":0,"offsetY":-107,"opacity":0,"rotate":"0","type":"a-fadeinR","yuanjiao":0,"zIndex":"6","disappearDuration":0,"disappearDelay":0},{"delay":2,"duration":1,"func":"","funcContent":"","width":496,"height":470,"initPos":"center","offsetX":-4,"offsetY":-105,"opacity":0,"rotate":"0","src":"[upload]2016/0/weikecj/17/a9106995-fefd-4771-ba65-963e5027ec2f.png","type":"a-bounceinT","yuanjiao":0,"zIndex":"5","disappearDuration":0,"disappearDelay":0},{"delay":"3.8","duration":"0.4","func":"","funcContent":"","width":658,"height":430,"initPos":"bottom","offsetX":2,"offsetY":36,"opacity":0,"rotate":"0","src":"[upload]2016/0/weikecj/17/00b8dd10-5cef-411f-96af-40166ced338e.png","type":"a-bounceinB","yuanjiao":0,"zIndex":"7","disappearDuration":0,"disappearDelay":0}],"canDelete":false},{"type":"animation","bg":"[upload]2016/0/weikecj/17/a3ec15f1-efdd-4b30-bdff-1a0204fe641f.jpg","anm":[{"delay":"0.2","duration":"0.5","func":"","funcContent":"","width":952,"height":1394,"initPos":"center","offsetX":60,"offsetY":61,"opacity":30,"rotate":"0","src":"[upload]2015/3/weikecj/1/38525c06-1551-41cb-acc4-d76d31e515e8.png","type":"a-fadein","yuanjiao":0,"zIndex":"1","disappearDuration":0,"disappearDelay":0,"textColor":"#ffffff"},{"delay":"0.8","duration":"0.8","func":"","funcContent":"","width":496,"height":92,"initPos":"center","offsetX":0,"offsetY":-368,"opacity":0,"rotate":"0","src":"[upload]2016/0/weikecj/17/5043b2ed-d94f-47c9-bcd0-94823bcf3e75.png","type":"a-bounceinL","yuanjiao":0,"zIndex":"2","disappearDuration":0,"disappearDelay":0,"textColor":"#ffffff"},{"elType":"text","textContent":"&lt;div style=&quot;text-align:center;&quot;&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;嘉宾简介&lt;/span&gt;&lt;/div&gt;","textFontsize":16,"textColor":"#ffffff","delay":"1.2","duration":1,"func":"","funcContent":"","width":452,"height":50,"initPos":"center","offsetX":0,"offsetY":-385,"opacity":0,"rotate":"0","type":"a-fadeinR","yuanjiao":0,"zIndex":"3","disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"&lt;div style=&quot;text-align:center;&quot;&gt;\tForum guests&lt;/div&gt;","textFontsize":"13","textColor":"#ffffff","delay":"1.4","duration":1,"func":"","funcContent":"","width":342,"height":42,"initPos":"center","offsetX":1,"offsetY":-349,"opacity":0,"rotate":"0","type":"a-fadeinL","yuanjiao":0,"zIndex":"4","disappearDuration":0,"disappearDelay":0},{"delay":2,"duration":1,"func":"","funcContent":"","width":194,"height":190,"initPos":"center","offsetX":-139,"offsetY":-161,"opacity":0,"rotate":"0","src":"[upload]2016/0/weikecj/17/a9106995-fefd-4771-ba65-963e5027ec2f.png","type":"a-fadeinR","yuanjiao":0,"zIndex":5,"disappearDuration":0,"disappearDelay":0},{"delay":2,"duration":1,"func":"","funcContent":"","width":194,"height":190,"initPos":"center","offsetX":135,"offsetY":-163,"opacity":0,"rotate":"0","src":"[upload]2016/0/weikecj/17/a9106995-fefd-4771-ba65-963e5027ec2f.png","type":"a-fadeinR","yuanjiao":0,"zIndex":6,"disappearDuration":0,"disappearDelay":0},{"delay":2,"duration":1,"func":"","funcContent":"","width":194,"height":190,"initPos":"center","offsetX":-139,"offsetY":171,"opacity":0,"rotate":"0","src":"[upload]2016/0/weikecj/17/a9106995-fefd-4771-ba65-963e5027ec2f.png","type":"a-fadeinR","yuanjiao":0,"zIndex":7,"disappearDuration":0,"disappearDelay":0},{"delay":2,"duration":1,"func":"","funcContent":"","width":194,"height":190,"initPos":"center","offsetX":135,"offsetY":171,"opacity":0,"rotate":"0","src":"[upload]2016/0/weikecj/17/a9106995-fefd-4771-ba65-963e5027ec2f.png","type":"a-fadeinR","yuanjiao":0,"zIndex":8,"disappearDuration":0,"disappearDelay":0},{"delay":"2.5","duration":1,"func":"","funcContent":"","width":174,"height":174,"initPos":"center","offsetX":-139,"offsetY":-161,"opacity":0,"rotate":"0","src":"[upload]2016/0/weikecj/17/ee5f65ba-1c6b-44ce-b575-65c050698e37.png","type":"a-fadeinL","yuanjiao":0,"zIndex":9,"disappearDuration":0,"disappearDelay":0},{"delay":"2.5","duration":1,"func":"","funcContent":"","width":174,"height":174,"initPos":"center","offsetX":135,"offsetY":-163,"opacity":0,"rotate":"0","src":"[upload]2016/0/weikecj/17/ee5f65ba-1c6b-44ce-b575-65c050698e37.png","type":"a-fadeinL","yuanjiao":0,"zIndex":10,"disappearDuration":0,"disappearDelay":0},{"delay":"2.5","duration":1,"func":"","funcContent":"","width":174,"height":174,"initPos":"center","offsetX":-139,"offsetY":171,"opacity":0,"rotate":"0","src":"[upload]2016/0/weikecj/17/ee5f65ba-1c6b-44ce-b575-65c050698e37.png","type":"a-fadeinL","yuanjiao":0,"zIndex":11,"disappearDuration":0,"disappearDelay":0},{"delay":"2.5","duration":1,"func":"","funcContent":"","width":174,"height":174,"initPos":"center","offsetX":135,"offsetY":171,"opacity":0,"rotate":"0","src":"[upload]2016/0/weikecj/17/ee5f65ba-1c6b-44ce-b575-65c050698e37.png","type":"a-fadeinL","yuanjiao":0,"zIndex":12,"disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"王健林","textFontsize":"14","textColor":"#ffffff","delay":"3.5","duration":1,"func":"","funcContent":"","width":190,"height":46,"initPos":"center","offsetX":-141,"offsetY":-33,"opacity":0,"rotate":"0","type":"a-flipinY","yuanjiao":0,"zIndex":13,"disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"万达集团股份有限公司董事长","textFontsize":"12","textColor":"#ffffff","delay":"3.5","duration":1,"func":"","funcContent":"","width":210,"height":66,"initPos":"center","offsetX":-131,"offsetY":21,"opacity":0,"rotate":"0","type":"a-flipinY","yuanjiao":0,"zIndex":14,"disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"王健林","textFontsize":"14","textColor":"#ffffff","delay":"3.5","duration":1,"func":"","funcContent":"","width":190,"height":46,"initPos":"center","offsetX":133,"offsetY":-35,"opacity":0,"rotate":"0","type":"a-flipinY","yuanjiao":0,"zIndex":15,"disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"万达集团股份有限公司董事长","textFontsize":"12","textColor":"#ffffff","delay":"3.5","duration":1,"func":"","funcContent":"","width":210,"height":66,"initPos":"center","offsetX":143,"offsetY":19,"opacity":0,"rotate":"0","type":"a-flipinY","yuanjiao":0,"zIndex":16,"disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"王健林","textFontsize":"14","textColor":"#ffffff","delay":"3.5","duration":1,"func":"","funcContent":"","width":190,"height":46,"initPos":"center","offsetX":-141,"offsetY":301,"opacity":0,"rotate":"0","type":"a-flipinY","yuanjiao":0,"zIndex":17,"disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"万达集团股份有限公司董事长","textFontsize":"12","textColor":"#ffffff","delay":"3.5","duration":1,"func":"","funcContent":"","width":210,"height":66,"initPos":"center","offsetX":-131,"offsetY":355,"opacity":0,"rotate":"0","type":"a-flipinY","yuanjiao":0,"zIndex":18,"disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"王健林","textFontsize":"14","textColor":"#ffffff","delay":"3.5","duration":1,"func":"","funcContent":"","width":190,"height":46,"initPos":"center","offsetX":133,"offsetY":299,"opacity":0,"rotate":"0","type":"a-flipinY","yuanjiao":0,"zIndex":19,"disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"万达集团股份有限公司董事长","textFontsize":"12","textColor":"#ffffff","delay":"3.5","duration":1,"func":"","funcContent":"","width":210,"height":66,"initPos":"center","offsetX":143,"offsetY":353,"opacity":0,"rotate":"0","type":"a-flipinY","yuanjiao":0,"zIndex":20,"disappearDuration":0,"disappearDelay":0}],"canDelete":false},{"type":"animation","bg":"[upload]2016/0/weikecj/17/a3ec15f1-efdd-4b30-bdff-1a0204fe641f.jpg","anm":[{"delay":"0.2","duration":"0.5","func":"","funcContent":"","width":986,"height":1352,"initPos":"center","offsetX":69,"offsetY":22,"opacity":30,"rotate":"0","src":"[upload]2015/3/weikecj/1/38525c06-1551-41cb-acc4-d76d31e515e8.png","type":"a-fadein","yuanjiao":0,"zIndex":"1","disappearDuration":0,"disappearDelay":0,"textColor":"#ffffff"},{"delay":"0.8","duration":"0.8","func":"","funcContent":"","width":496,"height":92,"initPos":"center","offsetX":2,"offsetY":-340,"opacity":0,"rotate":"0","src":"[upload]2016/0/weikecj/17/5043b2ed-d94f-47c9-bcd0-94823bcf3e75.png","type":"a-bounceinL","yuanjiao":0,"zIndex":"2","disappearDuration":0,"disappearDelay":0,"textColor":"#ffffff"},{"elType":"text","textContent":"&lt;div style=&quot;text-align:center;&quot;&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;会议简介&lt;/span&gt;&lt;/div&gt;","textFontsize":16,"textColor":"#ffffff","delay":"1.2","duration":1,"func":"","funcContent":"","width":452,"height":50,"initPos":"center","offsetX":2,"offsetY":-357,"opacity":0,"rotate":"0","type":"a-fadeinR","yuanjiao":0,"zIndex":"3","disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"&lt;div style=&quot;text-align:center;&quot;&gt;\tActive process&lt;/div&gt;","textFontsize":"13","textColor":"#ffffff","delay":"1.4","duration":1,"func":"","funcContent":"","width":342,"height":42,"initPos":"center","offsetX":5,"offsetY":-321,"opacity":0,"rotate":"0","type":"a-fadeinL","yuanjiao":0,"zIndex":"4","disappearDuration":0,"disappearDelay":0},{"delay":"2.2","duration":1,"func":"","funcContent":"","width":10,"height":550,"initPos":"center","offsetX":-121,"offsetY":65,"opacity":0,"rotate":"0","src":"[upload]2016/0/weikecj/17/a1886b84-cbab-47cf-8f1b-b79734e7592f.png","type":"a-rotatein","yuanjiao":0,"zIndex":5,"disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"13:00","textFontsize":"14","textColor":"#ffffff","delay":3,"duration":1,"func":"","funcContent":"","width":122,"height":46,"initPos":"center","offsetX":-161,"offsetY":-187,"opacity":0,"rotate":"0","type":"a-fadeinL","yuanjiao":0,"zIndex":6,"disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"14:00","textFontsize":"14","textColor":"#ffffff","delay":3,"duration":1,"func":"","funcContent":"","width":122,"height":46,"initPos":"center","offsetX":-161,"offsetY":-91,"opacity":0,"rotate":"0","type":"a-fadeinL","yuanjiao":0,"zIndex":7,"disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"16:00","textFontsize":"14","textColor":"#ffffff","delay":3,"duration":1,"func":"","funcContent":"","width":122,"height":46,"initPos":"center","offsetX":-163,"offsetY":43,"opacity":0,"rotate":"0","type":"a-fadeinL","yuanjiao":0,"zIndex":8,"disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"18:00","textFontsize":"14","textColor":"#ffffff","delay":3,"duration":1,"func":"","funcContent":"","width":122,"height":46,"initPos":"center","offsetX":-163,"offsetY":153,"opacity":0,"rotate":"0","type":"a-fadeinL","yuanjiao":0,"zIndex":9,"disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"20:00","textFontsize":"14","textColor":"#ffffff","delay":3,"duration":1,"func":"","funcContent":"","width":122,"height":46,"initPos":"center","offsetX":-163,"offsetY":299,"opacity":0,"rotate":"0","type":"a-fadeinL","yuanjiao":0,"zIndex":10,"disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"&lt;strong&gt;开场辞&lt;/strong&gt;","textFontsize":"13","textColor":"#ffffff","delay":3,"duration":1,"func":"","funcContent":"","width":124,"height":38,"initPos":"center","offsetX":-32,"offsetY":-195,"opacity":0,"rotate":"0","type":"a-fadeinR","yuanjiao":0,"zIndex":11,"disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"公司宣传视频，及战略规划","textFontsize":"13","textColor":"#ffffff","delay":3,"duration":1,"func":"","funcContent":"","width":330,"height":44,"initPos":"center","offsetX":71,"offsetY":-150,"opacity":0,"rotate":"0","type":"a-fadeinR","yuanjiao":0,"zIndex":12,"disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"&lt;strong&gt;开场辞&lt;/strong&gt;","textFontsize":"13","textColor":"#ffffff","delay":3,"duration":1,"func":"","funcContent":"","width":124,"height":38,"initPos":"center","offsetX":-32,"offsetY":-95,"opacity":0,"rotate":"0","type":"a-fadeinR","yuanjiao":0,"zIndex":13,"disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"主持人介绍会议安排","textFontsize":"13","textColor":"#ffffff","delay":3,"duration":1,"func":"","funcContent":"","width":330,"height":44,"initPos":"center","offsetX":71,"offsetY":-50,"opacity":0,"rotate":"0","type":"a-fadeinR","yuanjiao":0,"zIndex":14,"disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"&lt;strong&gt;领导发言&lt;/strong&gt;","textFontsize":"13","textColor":"#ffffff","delay":3,"duration":1,"func":"","funcContent":"","width":330,"height":44,"initPos":"center","offsetX":71,"offsetY":42,"opacity":0,"rotate":"0","type":"a-fadeinR","yuanjiao":0,"zIndex":15,"disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"&lt;strong&gt;会后晚宴&lt;/strong&gt;","textFontsize":"13","textColor":"#ffffff","delay":3,"duration":1,"func":"","funcContent":"","width":124,"height":38,"initPos":"center","offsetX":-34,"offsetY":149,"opacity":0,"rotate":"0","type":"a-fadeinR","yuanjiao":0,"zIndex":16,"disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"到预定酒店进行晚宴","textFontsize":"13","textColor":"#ffffff","delay":3,"duration":1,"func":"","funcContent":"","width":330,"height":44,"initPos":"center","offsetX":69,"offsetY":194,"opacity":0,"rotate":"0","type":"a-fadeinR","yuanjiao":0,"zIndex":17,"disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"&lt;strong&gt;大会总结&lt;/strong&gt;","textFontsize":"13","textColor":"#ffffff","delay":3,"duration":1,"func":"","funcContent":"","width":124,"height":38,"initPos":"center","offsetX":-34,"offsetY":283,"opacity":0,"rotate":"0","type":"a-fadeinR","yuanjiao":0,"zIndex":18,"disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"主板发作会议内容总结","textFontsize":"13","textColor":"#ffffff","delay":3,"duration":1,"func":"","funcContent":"","width":330,"height":44,"initPos":"center","offsetX":69,"offsetY":328,"opacity":0,"rotate":"0","type":"a-fadeinR","yuanjiao":0,"zIndex":19,"disappearDuration":0,"disappearDelay":0}],"canDelete":false},{"type":"animation","bg":"[upload]2016/0/weikecj/17/a3ec15f1-efdd-4b30-bdff-1a0204fe641f.jpg","anm":[{"delay":"0.2","duration":"0.5","func":"","funcContent":"","width":986,"height":1352,"initPos":"center","offsetX":69,"offsetY":22,"opacity":30,"rotate":"0","src":"[upload]2015/3/weikecj/1/38525c06-1551-41cb-acc4-d76d31e515e8.png","type":"a-fadein","yuanjiao":0,"zIndex":"1","disappearDuration":0,"disappearDelay":0,"textColor":"#ffffff"},{"delay":"0.8","duration":"0.8","func":"","funcContent":"","width":496,"height":92,"initPos":"center","offsetX":2,"offsetY":-296,"opacity":0,"rotate":"0","src":"[upload]2016/0/weikecj/17/5043b2ed-d94f-47c9-bcd0-94823bcf3e75.png","type":"a-bounceinL","yuanjiao":0,"zIndex":"2","disappearDuration":0,"disappearDelay":0,"textColor":"#ffffff"},{"elType":"text","textContent":"&lt;div style=&quot;text-align:center;&quot;&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;会议信息&lt;/span&gt;&lt;/div&gt;","textFontsize":16,"textColor":"#ffffff","delay":"1.2","duration":1,"func":"","funcContent":"","width":452,"height":50,"initPos":"center","offsetX":2,"offsetY":-313,"opacity":0,"rotate":"0","type":"a-fadeinR","yuanjiao":0,"zIndex":"3","disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"&lt;div style=&quot;text-align:center;&quot;&gt;\tActive infomation&lt;/div&gt;","textFontsize":"13","textColor":"#ffffff","delay":"1.4","duration":1,"func":"","funcContent":"","width":342,"height":42,"initPos":"center","offsetX":5,"offsetY":-277,"opacity":0,"rotate":"0","type":"a-fadeinL","yuanjiao":0,"zIndex":"4","disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"&lt;div style=&quot;text-align:left;&quot;&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;地点：&lt;span&gt;深圳市南山区高新南xxx大厦&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;","textFontsize":"14","textColor":"#ffffff","delay":2,"duration":1,"func":"","funcContent":"","width":452,"height":72,"initPos":"center","offsetX":-22,"offsetY":-172,"opacity":0,"rotate":"0","type":"a-fadeinR","yuanjiao":0,"zIndex":5,"disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"&lt;div style=&quot;text-align:left;&quot;&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;时间：&lt;span&gt;2016-01-15&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;","textFontsize":"14","textColor":"#ffffff","delay":2,"duration":1,"func":"","funcContent":"","width":452,"height":72,"initPos":"center","offsetX":-22,"offsetY":-102,"opacity":0,"rotate":"0","type":"a-fadeinR","yuanjiao":0,"zIndex":6,"disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"&lt;div style=&quot;text-align:left;&quot;&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;主办方：&lt;span&gt;xxxxx&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;","textFontsize":"14","textColor":"#ffffff","delay":2,"duration":1,"func":"","funcContent":"","width":452,"height":72,"initPos":"center","offsetX":-22,"offsetY":-34,"opacity":0,"rotate":"0","type":"a-fadeinR","yuanjiao":0,"zIndex":7,"disappearDuration":0,"disappearDelay":0},{"elType":"text","textContent":"&lt;div style=&quot;text-align:left;&quot;&gt;\t&lt;span style=&quot;line-height:1.5;&quot;&gt;联系方式：&lt;span&gt;xxxxx&lt;span&gt;xxxxxx&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;","textFontsize":"14","textColor":"#ffffff","delay":2,"duration":1,"func":"","funcContent":"","width":452,"height":72,"initPos":"center","offsetX":-24,"offsetY":36,"opacity":0,"rotate":"0","type":"a-fadeinR","yuanjiao":0,"zIndex":8,"disappearDuration":0,"disappearDelay":0},{"elType":"button","btnText":"地址导航>>","btnColor":"#000000","btnBgColor":"#ffffff","btnFontsize":14,"delay":3,"duration":1,"func":"link","funcContent":"http://api.map.baidu.com/marker?location=30.039856,120.885761&title=雷迪森万锦大酒店&content=雷迪森万锦大酒店&output=html","width":260,"height":70,"initPos":"center","offsetX":4,"offsetY":300,"opacity":0,"rotate":"0","src":"","type":"a-flipinX","yuanjiao":5,"zIndex":9,"disappearDuration":0,"disappearDelay":0}],"canDelete":false},{"type":"share","title":"xxxx会议邀请函","description":"欢迎参加xxxx会议，期待您的光临！","logo":"[upload]2016/0/weikecj/17/a40ca48e-729d-46ef-83ab-4bb409ee444e.jpg","canDelete":false}]'+')');
+	var globalData = null;
+	$.ajaxSettings.async = false; 
+	$.getJSON("json/getTemp1.json",function(res){
+		globalData = res;
+	});
+	/*function getInvitationById() {
+		$.ajax({
+			url: 'getInviteLetter.action',
+			type: 'POST',
+			async: false,
+			data: {
+				id: window.app.invitation_id,
+				langType: 1
+			},
+			beforeSend: function() {
+	
+			},
+			success: function(response, status, xhr) {
+				var json_comment = $.parseJSON(response);
+				$.each(json_comment.rows, function(index, value) {
+					globalData = JSON.parse(value.IL);
+				})
+			},
+			error: function() {
+				alert('system error!')
+			}
+		})
+	}
+	getInvitationById();*/
+	initEl(globalData);
+	</script>
+	<script type="text/javascript" src="picker/picker.js?v=20160410"></script>
+	<script type="text/javascript" src="picker/picker.date.js?v=20160410"></script>
+	<script type="text/javascript" src="picker/picker.time.js?v=20160410"></script>	
+	<script type="text/javascript" src="js/mobile/book_.js?v=20160410"></script>
+	<script type="text/javascript" src="js/mobile/fx.js?v=20160410"></script>
+	<script type="text/javascript" src="js/mobile/loading_.js?v=20160410"></script>
+	<script type="text/javascript" src="js/mobile/global.js?v=20160410"></script>
+	
+	<script type="text/javascript" src="js/mobile/page/page.js?v=20160410"></script>');	
+	
+	<script type="text/javascript" src="js/mobile/sileFn.js?v=20160410"></script>
+	<script type="text/javascript" src="js/mobile/slidepic.js?v=20160410"></script>
+	<script type="text/javascript" src="js/mobile/yl3d.js?v=20160410"></script>
+	<script type="text/javascript" src="js/mobile/ylMusic.js?v=20160410"></script>
+	<script type="text/javascript" src="js/mobile/media_.js?v=20160410"></script>
+	<script type="text/javascript" src="js/mobile/map.js?v=20160410"></script>
+	<script type="text/javascript" src="js/mobile/form.js?v=20160410"></script>
+	<script type="text/javascript" src="js/mobile/page/event.js?v=20160410"></script>
+	<script type="text/javascript" src="js/mobile/page/image4cover.js?v=20160410"></script>
+	<script type="text/javascript" src="js/mobile/page/Lottery.js?v=20160410"></script>
+	<script type="text/javascript" src="js/mobile/page/video.js?v=20160410"></script>
+	<script type="text/javascript" src="js/mobile/beidaqingdian/message_.js?v=20160410"></script>
+	<script type="text/javascript">
+		
+		function initMask(percent,canvas_url,bg_url){
+			page.page_stop();
+			// 蒙板插件
+			bg_url=bg_url?bg_url:'img/a203937a-669d-44f3-aa48-3dccb51196e2.png';
+			var $mengban = $('#j-mengban');
+			$mengban.show().removeClass('z-hide').addClass('z-show');
+			var node = $mengban[0], type = 'image', 
+					w = 640, h = $(window).height(), callback = function() {
+				// 隐藏蒙板
+				$mengban.removeClass('noanm').removeClass('z-show').addClass('z-hide');
+				setTimeout(function() {
+					$mengban.hide();
+					page.page_start();
+				}, 1000);
+			};
+			//loading会在lottery中显示/隐藏
+			
+			var lottery = new Lottery(node, canvas_url, type, w, h,percent, callback);
+			lottery.init(bg_url, 'image');
+		}
+	
+		$(function() {
+			
+			//初始化高度
+			$(".translate-back").height($(window).height());
+			$(".m-page").height($(window).height());
+			//$(".page-con").height($(window).height() + 2);
+
+			// 音符飘逸
+			$('#coffee_flow').coffee({
+				steams	: ["<img src='image/mobile/audio_widget_01@2x.png' />",
+									"<img src='/template/19/img/audio_widget_01@2x.png' />" ],
+				steamHeight : 100,
+				steamWidth : 44
+			});
+			
+			// 开启window的滚动
+			global._scrollStart();
+			// 开启页面切换
+			var lastPage=globalData[globalData.length-1];
+			var scrolltype=lastPage.pagescrolltype;
+			//处理横屏切换
+			if(scrolltype>2){
+				scrolltype=scrolltype-3;
+			}
+			page.page_translate_type=(scrolltype>=0)?scrolltype:1;
+			//动画播放一次还是总是播放
+			page.page_animate_type=(lastPage.pageanimate&&lastPage.pageanimate==1)?1:0;
+			//页面是否循环显示
+			page.page_play_type=(lastPage.pageplaytype&&lastPage.pageplaytype==1)?1:0;
+			//页面是否自动翻页
+			page.isAutoPlay=lastPage.isAutoPlay&&lastPage.autoPlayTime;
+			page.autoPlayTime=(lastPage.autoPlayTime&&lastPage.autoPlayTime>=3)?lastPage.autoPlayTime:3;
+			if(page.isAutoPlay){
+				setInterval(page.autoScroll,page.autoPlayTime*1000);
+			}
+			page.page_start();
+			// 箭头显示
+			$('.u-arrow').removeClass('f-hide');
+			//判断是否开启音乐
+			if (isOpenMusic) {
+				setTimeout(function(){
+					media._audioNode.removeClass('f-hide').removeClass('close');
+					media.audio_play();
+				},500);
+			}
+
+			/*
+			**日期插件添加
+			*/
+			var opts_data ={
+				monthsFull: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+				monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+				weekdaysFull: ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日'],
+				weekdaysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+				format: 'yyyy-mmmm-d',
+				min: new Date()
+			};
+			$(".picker_data").pickadate(opts_data);
+			
+			//前三张背景图片加载完成后执行回调
+			lazyImg.lazy_callback = function() {
+				window.loadingStep++;
+				if((window.loadingStep==2 || vcount==0) && maskinit){
+					loading.hide();
+					$(".m-page").eq(0).removeClass('f-hide-animation').removeClass('f-hide');
+					var $animationEl=$(".m-page").eq(0).find('.animationEl');
+					$animationEl.show();	
+					$animationEl.each(function(){
+						var $self=$(this);
+						handleAnimation($(this));				
+					});
+					media.media_init();
+					setTimeout(function(){
+						media.audio_play();
+					},1000);
+				}		
+			}
+			
+			setTimeout(function(){
+				loading.hide();
+				$(".m-page").eq(0).removeClass('f-hide-animation').removeClass('f-hide');
+				var $animationEl=$(".m-page").eq(0).find('.animationEl');
+				$animationEl.show();	
+				$animationEl.each(function(){
+					var $self=$(this);
+					handleAnimation($(this));				
+				});
+			},10000);
+			
+			/***处理音频播放兼容性***/			
+			document.addEventListener("WeixinJSBridgeReady", function () {
+			    WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+			    	try{
+				    	$('#media')[0].play();			    		
+			    	}catch(e){			    		
+			    	}
+			    });
+			}, false);
+			$('.p-ct').one('touchstart',function(){
+				if(!media._audio_val){
+	      		    media.media_init();
+					media.audio_play();	
+					try{
+				    	$('#media')[0].play();			    		
+			    	}catch(e){			    		
+			    	}
+				}
+			});
+			$('body').one('touchstart',function(){
+				if(!media._audio_val){
+	      		    media.media_init();
+					media.audio_play();	
+					try{
+				    	$('#media')[0].play();			    		
+			    	}catch(e){			    		
+			    	}
+				}
+			});
+			/***处理音频播放兼容性END***/
+			
+			//如果只有一页，则做相应处理
+			if(globalData.length<=2){
+				$('.u-arrow').hide();
+				$('.market-notice').removeClass('f-hide').addClass('show');
+				page.page_stop();	
+				global._scrollStop();			
+			}
+			
+			/* setTimeout(function(){
+				//展示品旋转
+				$(".imgbox").yl3d({
+					stopEle	: $(".m-page"),
+					startFn : page.page_touch_start,
+					moveFn	: page.page_touch_move,
+					endFn	: page.page_touch_end
+				});
+				//轮播图初始化
+				$('.imgSlider').each(function(){
+					var urls = $(this).find('input').val();
+					new slidepic(this,{urls:urls});
+				});
+				//简介内容伸缩
+				var $txt=$('.m-txt.m-txt02.txt');
+				var initHeight=$txt.height();
+				$txt.click(function(){
+					var $self=$(this);
+					if($(this).height()==initHeight){
+						var h=$self.find('.wtxt>p').height();
+						$self.animate({height:h},200);
+					}else{
+						$self.animate({height:initHeight},200);
+					}				
+				});
+
+			},500);	 */
+			
+		});
+	</script>
+	<!--脚本加载 end-->
+</body>
+</html>

@@ -1,0 +1,10 @@
+/*
+ 	兼容在PC上的预览显示
+ * */
+body{
+	zoom:0.5;
+	cursor:pointer;
+}
+.page-con{
+	height: 950px!important;
+}

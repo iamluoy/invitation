@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="renderer" content="webkit">
+<title>页面模版</title>
+<link rel="stylesheet" href="css/bootstrap4app.css?v=20160410" />
+<link rel="stylesheet" href="css/edit/selectimg.css?v=20160410" />
+<link rel="stylesheet" href="css/operamasks/om-fileupload.css?v=20160410" />
+<script type="text/javascript" src="js/jquery-1.7.2.min.js?v=20160410"></script>
+<script type="text/javascript" src="js/jquery-ui-min.js?v=20160410"></script>
+<script type="text/javascript" src="js/operamasks-ui.min.js?v=20160410"></script>
+
+<style>
+.list-unstyled li,.npop-nav ul li{
+	cursor:pointer;
+}
+.npop-nav ul {
+	display:none;
+}
+.Hide{
+	display:none!important;
+}
+#npopbox .list-unstyled li.nodel .npop-imgdel{
+	display:none!important;
+}
+#npopbox .list-unstyled.nodel .npop-imgdel{
+	display:none!important;
+}
+#upload_picQueue{
+	display:none!important;
+}
+#upload_picUploader{
+	position:absolute;
+	left:10px;
+	opacity:0;
+}
+</style>
+
+</head>
+<body class="bg-fff" marginwidth="0" marginheight="0">
+	
+	<div class="newpop-left">
+		<ul class="list-unstyled">
+			<li id="pageTemplate"><a class="actived" title="">页面模版</a></li>
+		</ul>
+	</div>
+	<div class="newpop-right">
+		<div class="npop-nav">
+			<ul style="display:block;">
+				<li id="showAll" idata="0"><a class="on">全部</a></li>
+				<li idata="1"><a>蓝色</a></li>
+				<li idata="2"><a>绿色</a></li>
+				<li idata="3"><a>黑色</a></li>
+				<li idata="7"><a>白色</a></li>
+				<li idata="4"><a>红色</a></li>
+				<li idata="5"><a>紫色</a></li>
+				<li idata="6"><a>黄色</a></li>
+			</ul>
+		</div>
+		<div class="npop-box sc-piclist" id="npopbox">
+			<ul class="list-unstyled">
+			</ul>
+		</div>
+		<div class="npop-page">
+			<div class="u-page npage">
+				<a class="prev num none">上一页</a>
+				<a class="next num none" style="margin-right:3px;">下一页</a>
+				当前页数 <span id="currPage">1</span>/<span id="totalPage">1</span>
+			</div>
+			<div class="npop-btn" style="position:relative;">
+				<a href="javascript:;" id="select_pic" class="btn" title="确定选择">确定选择</a>
+			</div>
+		</div>
+	</div>
+
+	<script>
+	
+	$(function(){
+		
+		window.app={};
+		window.app.basePath='http://192.168.16.231:8080/EE/invitation/';
+		window.app.uploadImgPath='http://cdn.weikecj.cn/';
+		window.app.uid='106867';
+		window.UPLOAD_PREFIX='[upload]';
+		
+		$('#npopbox .list-unstyled li').live('click',function(){
+			$('#npopbox .list-unstyled li').removeClass('nodel');
+			$('#npopbox .list-unstyled li .npop-imgok').addClass('Hide');
+			$(this).addClass('nodel').find('.npop-imgok').removeClass('Hide');
+		});
+		
+		$('.newpop-right .npop-nav ul li').click(function(){
+			var $self=$(this);
+			$self.siblings('li').find('a').removeClass('on');
+			$self.find('a').addClass('on');
+		});
+		
+		var start=0;
+		var limit=12;
+		var type=0;
+		var obj={};
+		$('*[idata]').click(function(){
+			start=0;
+			type=$(this).attr('idata');
+			queryData();
+		});
+		
+		$('.u-page.npage .prev').click(function(){
+			if($(this).hasClass('none')){
+				return;
+			}
+			start=start-limit;
+			queryData();
+		});
+		$('.u-page.npage .next').click(function(){
+			if($(this).hasClass('none')){
+				return;
+			}
+			start=start+limit;
+			queryData();
+		});
+		
+		var $currPage=$('#currPage');
+		var $totalPage=$('#totalPage');
+		
+		function queryData(){
+			var listUl=$('#npopbox .list-unstyled');
+			listUl.html('');
+			$('.u-page.npage>a').addClass('none');
+			$.ajax({
+				url : "json/getTemplateList.json",
+				dataType : "json",
+				type:'get',
+				data : {
+					action:'getTemplateData',
+					type:type,
+					start:start,
+					limit:limit
+				},
+				success : function(res){
+					if(res.success==true){		
+						obj={};
+						var data=res.data;
+						var count=res.count;
+						for(var i=0;i<data.length;i++){
+							var d=data[i];
+							var html='';
+							obj[''+d.id]=d.data;
+							html='<li id="pic_'+d.id+'" idata="'+d.id+'"> '+
+							'	<a href="javascript:;" title="" style="height:172px;"> '+
+							'		<div class="sc-picbg" style="height:142px;"> '+
+							'			<img src="'+window.app.uploadImgPath+d.viewurl+'" alt=""> '+
+							'		</div> '+
+							'		<p class="text-overflow">'+(d.name?d.name:((count-start-i)+'.tmpl'))+'</p> '+
+							'	</a>	 '+
+							'	<div class="f-abs npop-imgok Hide" style="height:172px;"><em class="icon-m" style="margin: 61px 0 0 30px;"></em></div>	';
+							'</li>';
+							listUl.append(html);							
+						}
+						//更新按钮/页数状态
+						var currPage=Math.floor(start/limit)+1;
+						var totalPage=1;
+						if(count/limit==parseInt(count/limit)){
+							totalPage=Math.floor(count/limit);
+						}else{
+							totalPage=Math.floor(count/limit)+1;
+						}
+						if(totalPage==0){
+							totalPage=1;
+						}
+						if(totalPage==1){
+							//do nothing
+						}else if(currPage==1){
+							$('.u-page.npage .next').removeClass('none');
+						}else if(currPage==totalPage){
+							$('.u-page.npage .prev').removeClass('none');							
+						}else{
+							$('.u-page.npage .next').removeClass('none');
+							$('.u-page.npage .prev').removeClass('none');							
+						}
+						$currPage.html(currPage);
+						$totalPage.html(totalPage);
+					}else{
+						alert('加载页面模版失败');
+					}
+				},
+				error:function(res){
+					if(res && res.responseText && res.responseText.indexOf('login.jsp')!=-1){
+						window.top.location.href='/login.jsp';
+					}
+				}
+			});
+		}
+		
+		//初始化
+		$('#showAll').click();
+		
+		$('#pageTemplate').click(function(){
+			$('#showAll').click();
+		});
+		
+		$('#select_pic').click(function(){
+			var $li=$('#npopbox .list-unstyled li.nodel');
+			if($li.length==0){
+				alert('请选择页面模版');
+				return;
+			}
+			var data=JSON.parse(obj[''+$li.attr('idata')]);
+			if(data){
+				window.parent.selectTemplate(data);
+			}
+		});
+		
+	});
+	</script>
+
+</body>
+</html>
